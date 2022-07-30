@@ -8,11 +8,13 @@ public class DataList {
     private String title;
     private String content;
     private String img;
+    private String msgTime;
 
-    public DataList(String title, String content, String img) {
+    public DataList(String title, String content, String img, String msgTime) {
         this.title = title;
         this.content = content;
         this.img = img;
+        this.msgTime = msgTime;
     }
 
     public String getTitle() {
@@ -25,6 +27,10 @@ public class DataList {
 
     public String getImg() {
         return img;
+    }
+
+    public String getMsgTime() {
+        return msgTime;
     }
 
     public String getDefaultUrl(){

@@ -45,12 +45,15 @@ public class RecycleView_On_Click extends AppCompatActivity{
                         @Override
                         public void onSuccess() {
                             progressBar.setVisibility(View.INVISIBLE);
+                            Toast.makeText(RecycleView_On_Click.this,"msgTime:  "+model.getDataList().get(pos).getMsgTime()
+                                    +"\n                 加載成功",Toast.LENGTH_SHORT).show();
                         }
                         @Override
                         public void onError(Exception e) {
                             progressBar.setVisibility(View.INVISIBLE);
                             Picasso.get().load(model.getDataList().get(pos).getDefaultUrl()).into(imgOnClick);
-                            Toast.makeText(RecycleView_On_Click.this,"加載失敗",Toast.LENGTH_LONG).show();
+                            Toast.makeText(RecycleView_On_Click.this,"msgTime:  "+model.getDataList().get(pos).getMsgTime()+
+                                    "\n                 加載失敗",Toast.LENGTH_SHORT).show();
                         }
                     });
         });
