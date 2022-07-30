@@ -43,6 +43,7 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.imgView.startAnimation(AnimationUtils.loadAnimation(holder.itemView.getContext(), R.anim.slide));
         holder.cardView.startAnimation(AnimationUtils.loadAnimation(holder.itemView.getContext(), R.anim.slide));
+        holder.txtTitle.startAnimation(AnimationUtils.loadAnimation(holder.itemView.getContext(), R.anim.slide));
         Picasso.get().load(model.getDataList().get(position).getDefaultUrl()).into(holder.imgView);
         holder.txtTitle.setText(model.getDataList().get(position).getTitle());
     }
