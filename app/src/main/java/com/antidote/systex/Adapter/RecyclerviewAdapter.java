@@ -2,7 +2,6 @@ package com.antidote.systex.Adapter;
 
 import android.content.Context;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,14 +18,14 @@ import com.antidote.systex.R;
 import com.antidote.systex.RecycleViewOnClick.RecycleViewInterface;
 import com.squareup.picasso.Picasso;
 
-public class ModelListAdapter extends RecyclerView.Adapter<ModelListAdapter.MyViewHolder> {
+public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapter.MyViewHolder> {
 
     private final RecycleViewInterface recycleViewInterface;
 
     Context context;
     Model model;
 
-    public ModelListAdapter(Context context, Model model, RecycleViewInterface recycleViewInterface) {
+    public RecyclerviewAdapter(Context context, Model model, RecycleViewInterface recycleViewInterface) {
         this.context = context;
         this.model = model;
         this.recycleViewInterface = recycleViewInterface;
@@ -35,7 +34,7 @@ public class ModelListAdapter extends RecyclerView.Adapter<ModelListAdapter.MyVi
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
+        LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.recycleview, viewGroup, false);
         return new MyViewHolder(view, recycleViewInterface);
     }

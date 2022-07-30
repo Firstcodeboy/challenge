@@ -2,7 +2,7 @@ package com.antidote.systex.Repository;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.antidote.systex.Common.Common;
+import com.antidote.systex.WebsiteToConnect.WebsiteToConnect;
 import com.antidote.systex.Model.Model;
 import com.antidote.systex.Network.APIservice;
 
@@ -14,7 +14,7 @@ public class Repository {
     private APIservice apIservice;
 
     public Repository() {
-        this.apIservice = Common.getAPIservice();
+        this.apIservice = WebsiteToConnect.getAPIservice();
     }
 
     public MutableLiveData<Model> getModelLiveData(){

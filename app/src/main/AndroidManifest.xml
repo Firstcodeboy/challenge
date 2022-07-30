@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SYSTEX">
         <activity
-            android:name=".RecycleView_On_Click"
+            android:name=".RecycleViewOnClick.RecycleView_On_Click"
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity

@@ -1,9 +1,9 @@
-package com.antidote.systex.Common;
+package com.antidote.systex.WebsiteToConnect;
 
 import com.antidote.systex.Network.APIservice;
 import com.antidote.systex.Network.Retrofit;
 
-public class Common {
+public class WebsiteToConnect {
     private static final String BASE_URL = "https://smuat.megatime.com.tw/";
 
     public  static APIservice getAPIservice(){

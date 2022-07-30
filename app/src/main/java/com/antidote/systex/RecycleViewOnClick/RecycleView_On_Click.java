@@ -1,23 +1,20 @@
-package com.antidote.systex;
+package com.antidote.systex.RecycleViewOnClick;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.antidote.systex.R;
 import com.antidote.systex.ViewModel.MainActivityViewModel;
 
-import com.google.gson.JsonIOException;
-import com.google.gson.JsonNull;
-import com.google.gson.JsonParseException;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
-
-import org.json.JSONException;
 
 
 public class RecycleView_On_Click extends AppCompatActivity{
@@ -41,19 +38,21 @@ public class RecycleView_On_Click extends AppCompatActivity{
 
             txtContent.setText(model.getDataList().get(pos).getContent());
             txtTitle.setText(model.getDataList().get(pos).getTitle());
+            ProgressBar progressBar = findViewById(R.id.progressBar);
+            progressBar.setVisibility(View.VISIBLE);
             Picasso.get().load(model.getDataList().get(pos).getImg())
                     .into(imgOnClick, new Callback() {
                         @Override
                         public void onSuccess() {
+                            progressBar.setVisibility(View.INVISIBLE);
                         }
                         @Override
                         public void onError(Exception e) {
+                            progressBar.setVisibility(View.INVISIBLE);
                             Picasso.get().load(model.getDataList().get(pos).getDefaultUrl()).into(imgOnClick);
                             Toast.makeText(RecycleView_On_Click.this,"加載失敗",Toast.LENGTH_LONG).show();
                         }
                     });
-
-
         });
     }
 }

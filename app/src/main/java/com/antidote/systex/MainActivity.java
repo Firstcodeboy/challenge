@@ -1,7 +1,6 @@
 package com.antidote.systex;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,19 +9,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.antidote.systex.Adapter.ModelListAdapter;
-import com.antidote.systex.Model.Model;
+import com.antidote.systex.Adapter.RecyclerviewAdapter;
 import com.antidote.systex.RecycleViewOnClick.RecycleViewInterface;
+import com.antidote.systex.RecycleViewOnClick.RecycleView_On_Click;
 import com.antidote.systex.ViewModel.MainActivityViewModel;
 
 public class MainActivity extends AppCompatActivity implements RecycleViewInterface{
 
-    Model model;
-
     MainActivityViewModel mainActivityViewModel;
     RecyclerView recyclerView;
 
-    ModelListAdapter adapter;
+    RecyclerviewAdapter adapter;
     RecyclerView.LayoutManager layoutManager;
 
 
@@ -34,10 +31,10 @@ public class MainActivity extends AppCompatActivity implements RecycleViewInterf
 
         recyclerView = findViewById(R.id.recycview);
 
-        mainActivityViewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
+        mainActivityViewModel = new MainActivityViewModel();
 
         mainActivityViewModel.getList().observe(this,model -> {
-            adapter = new ModelListAdapter(MainActivity.this, model, this);
+            adapter = new RecyclerviewAdapter(MainActivity.this, model, this);
             adapter.notifyDataSetChanged();
             recyclerView.setAdapter(adapter);
         });

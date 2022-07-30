@@ -5,14 +5,8 @@ import com.google.gson.annotations.SerializedName;
 
 public class DataList {
 
-    @SerializedName("title")
-    @Expose
     private String title;
-    @SerializedName("content")
-    @Expose
     private String content;
-    @SerializedName("img")
-    @Expose
     private String img;
 
     public DataList(String title, String content, String img) {
